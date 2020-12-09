@@ -1,17 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import {Router, Route, IndexRoute, route} from "react-router-3";
+import hashHistory from "react-router-3/lib/hashHistory";
+import MyGoogleMap from "./components/googlemap/mygooglemap";
+import {Provider} from "react-redux";
+import store from "./app/store";
+import MyRouter from "./myrouter";
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    (
+        <Provider store={store}>
+           <MyRouter />
+        </Provider>
+
+    ),
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
